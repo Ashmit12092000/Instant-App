@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp" android:src="@drawable/logo" android:id="@+id/profile_img"
+            android:layout_marginTop="5dp" android:layout_marginLeft="5dp"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/more" android:id="@+id/postmenu_btn"
+            android:layout_alignRight="@id/userName"
+            android:layout_alignParentRight="true" android:layout_marginEnd="10dp"/>
+    <TextView
+            android:text="Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/userName" android:layout_toRightOf="@id/profile_img"
+            android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:textSize="18sp"
+            android:textStyle="bold" android:textColor="#121212"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/Timeofpost" android:layout_toRightOf="@id/profile_img"
+            android:layout_below="@id/userName" android:layout_marginLeft="5dp" android:layout_marginTop="12dp"
+            android:textStyle="normal" android:textColor="#0B0B0B"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/postcaption" android:layout_below="@id/profile_img"
+            android:layout_marginTop="10dp" android:textSize="18sp" android:textColor="#090909"
+            android:layout_marginLeft="5dp"/>
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_below="@id/postcaption" app:cardCornerRadius="20dp"
+            android:background="#FFFFFF" android:layout_marginTop="10dp"
+            android:id="@+id/cardview">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="302dp"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    tools:srcCompat="@drawable/photo" android:id="@+id/post_img"
+                    android:layout_marginTop="8dp" android:layout_marginLeft="5dp"
+                    android:layout_marginEnd="5dp" tools:visibility="visible"/>
+        </LinearLayout>
+        <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/animation_view"
+                app:lottie_rawRes="@raw/like"
+                app:lottie_autoPlay="false"
+                app:lottie_loop="false" tools:visibility="gone" android:layout_gravity="center"/>
+    </androidx.cardview.widget.CardView>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_below="@id/cardview" android:id="@+id/linear"
+            android:layout_marginTop="10dp">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/ic_unlike" android:id="@+id/likebutton"
+        />
+        <TextView
+                android:text="Likes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/post_likes_count" android:layout_marginLeft="5dp"
+                android:textStyle="bold" android:textColor="#040404" android:layout_gravity="center_vertical"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/ic_comments"
+                android:id="@+id/comments_icon"
+                android:layout_marginStart="5dp" android:layout_gravity="center_vertical"/>
+        <TextView
+                android:text="Comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/post_comments_btn" android:textColor="#040404"
+                android:layout_marginStart="5dp" android:textStyle="bold" android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_below="@id/linear" android:id="@+id/comments_layout"
+            android:layout_marginTop="15dp" tools:visibility="gone">
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/commented_username" android:textColor="#0B0B0B"
+                android:textStyle="bold" android:textSize="18sp"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/commented_msg" android:layout_weight="1"
+                android:layout_marginLeft="5dp" android:textColor="#121111" android:textSize="18sp"/>
+    </LinearLayout>
+</RelativeLayout>

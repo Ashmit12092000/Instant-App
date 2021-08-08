@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:padding="5dp">
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:id="@+id/msg_b">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/video_image_background"
+                android:id="@+id/video_chat_box1"
+                android:layout_marginRight="0dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                tools:visibility="gone">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/message_box" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/videosenderlinearLayout">
+                <com.google.android.exoplayer2.ui.PlayerView
+                        android:id="@+id/videoplayer"
+                        android:layout_width="200dp"
+                        android:layout_height="184dp" android:layout_marginTop="5dp" android:layout_marginLeft="3dp"/>
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:text="time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/videochat_msg_time"
+                            android:layout_marginLeft="90dp"
+                            android:textColor="#090909" tools:visibility="visible" android:padding="5dp"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/msg_left_corner"
+                android:id="@+id/sender_text_box"
+                android:layout_marginRight="0dp"
+                android:layout_marginEnd="5dp" android:layout_marginTop="5dp"
+                tools:visibility="visible">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/message_box" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/textlinearLayout">
+
+                <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" android:id="@+id/message"
+                        android:textSize="20sp"
+                        android:textColor="#FFFFFF" android:visibility="visible" android:textAlignment="textEnd"
+                        android:textIsSelectable="false" android:layout_marginLeft="15dp"/>
+                <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/text_msg_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:padding="5dp"
+                        android:text="time"
+                        android:textAlignment="textEnd"
+                        android:textColor="#090909"
+                        tools:visibility="visible" />
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/message_box"
+                android:id="@+id/sender_Chat_box"
+                android:layout_marginRight="0dp"
+                android:layout_marginEnd="5dp" android:layout_marginTop="5dp"
+                tools:visibility="gone">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/message_box" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/senderlinearLayout">
+                <ImageView
+                        android:layout_width="184dp"
+                        android:layout_height="184dp" app:srcCompat="@drawable/user" android:id="@+id/imageView"
+                        android:scaleType="centerCrop" android:layout_margin="5dp" android:visibility="gone"
+                />
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:text="time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/image_chat_msg_time"
+                            android:layout_marginLeft="90dp"
+                            android:textColor="#090909" tools:visibility="visible" android:textAlignment="textEnd"
+                            android:padding="5dp"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp" app:srcCompat="@drawable/cool" android:id="@+id/reciever_layoutm"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                    app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+                    app:layout_constraintTop_toTopOf="@+id/linearLayout" tools:visibility="gone"
+                    app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.234"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/msg_left_corner"
+                android:id="@+id/pdf_sender_box"
+                android:layout_marginRight="0dp"
+                android:layout_marginEnd="5dp" android:layout_marginTop="5dp"
+                tools:visibility="gone">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/message_box" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/pdfinearLayout">
+
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" android:background="@drawable/sender_linear_round">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/pdf"
+                            android:id="@+id/imageView4" android:padding="10dp"/>
+                    <TextView
+                            android:text="TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/filename" android:layout_weight="1"
+                            android:layout_marginTop="10dp" android:padding="10dp" android:textColor="#050505"/>
+                </LinearLayout>
+                <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:text="time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/pdf_msg_time"
+                            android:textColor="#090909" tools:visibility="visible"
+                            android:layout_marginLeft="90dp" android:textAlignment="textEnd" android:padding="5dp"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/isseen" android:layout_below="@id/msg_b"
+            android:layout_alignEnd="@id/msg_b" android:layout_marginLeft="5dp" tools:visibility="gone"/>
+</RelativeLayout>

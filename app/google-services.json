@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "939692241199",
+    "project_id": "teslalogin-d6a4b",
+    "storage_bucket": "teslalogin-d6a4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939692241199:android:66fadb84d70b5430b6b1da",
+        "android_client_info": {
+          "package_name": "com.project.tesla"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939692241199-v8b0qik6svff9guj07mjg6iasibsvcuj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.tesla",
+            "certificate_hash": "01c146afaec63e562fd4398363ad819734dcfbd0"
+          }
+        },
+        {
+          "client_id": "939692241199-0d719r9bberghr80h2qipaqhn59im3q7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuQrX8Tc_VPOseZTVVJjp87v2sQy19-OM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939692241199-0d719r9bberghr80h2qipaqhn59im3q7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

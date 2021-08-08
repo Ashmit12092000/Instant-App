@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            android:src="@drawable/backw" android:id="@+id/image6" android:layout_centerHorizontal="false"
+            android:layout_marginTop="3dp" android:padding="5dp" android:layout_toRightOf="@id/image5"
+            android:layout_marginLeft="6dp"/>
+    <com.devlomi.circularstatusview.CircularStatusView
+            android:id="@+id/circular_status_view6"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            app:portion_color="#e6e6e6"
+            app:portion_spacing="4dp"
+            app:portion_width="4dp"
+            app:portions_count="8" tools:ignore="MissingClass" android:layout_centerHorizontal="false"
+            android:layout_marginTop="3dp" android:layout_toRightOf="@id/image5" android:layout_marginLeft="6dp"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            android:src="@drawable/backw" android:id="@+id/image5" android:layout_centerHorizontal="false"
+            android:layout_marginTop="3dp" android:padding="5dp" android:layout_toRightOf="@id/image2"
+            android:layout_marginLeft="6dp"/>
+    <com.devlomi.circularstatusview.CircularStatusView
+            android:id="@+id/circular_status_view5"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            app:portion_color="#e6e6e6"
+            app:portion_spacing="4dp"
+            app:portion_width="4dp"
+            app:portions_count="8" tools:ignore="MissingClass" android:layout_centerHorizontal="false"
+            android:layout_marginTop="3dp" android:layout_toRightOf="@id/image2" android:layout_marginLeft="6dp"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            android:src="@drawable/backw" android:id="@+id/image4" android:layout_centerHorizontal="false"
+            android:layout_marginTop="3dp" android:padding="5dp" android:layout_marginLeft="6dp"/>
+    <com.devlomi.circularstatusview.CircularStatusView
+            android:id="@+id/circular_status_view4"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            app:portion_color="#e6e6e6"
+            app:portion_spacing="4dp"
+            app:portion_width="4dp"
+            app:portions_count="8" tools:ignore="MissingClass" android:layout_centerHorizontal="false"
+            android:layout_marginTop="3dp" android:layout_marginLeft="6dp"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            android:src="@drawable/backw" android:id="@+id/image3" android:layout_centerHorizontal="false"
+            android:layout_marginTop="3dp" android:padding="5dp" android:layout_toRightOf="@id/image4"
+            android:layout_marginLeft="6dp"/>
+    <com.devlomi.circularstatusview.CircularStatusView
+            android:id="@+id/circular_status_view3"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            app:portion_color="#e6e6e6"
+            app:portion_spacing="4dp"
+            app:portion_width="4dp"
+            app:portions_count="8" tools:ignore="MissingClass" android:layout_centerHorizontal="false"
+            android:layout_marginTop="3dp" android:layout_toRightOf="@id/image4" android:layout_marginLeft="6dp"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            android:src="@drawable/backw" android:id="@+id/image2" android:layout_centerHorizontal="false"
+            android:layout_marginTop="3dp" android:padding="5dp" android:layout_toRightOf="@id/image3"
+            android:layout_marginLeft="6dp"/>
+    <com.devlomi.circularstatusview.CircularStatusView
+            android:id="@+id/circular_status_view2"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            app:portion_color="#e6e6e6"
+            app:portion_spacing="4dp"
+            app:portion_width="4dp"
+            app:portions_count="8" tools:ignore="MissingClass" android:layout_centerHorizontal="false"
+            android:layout_marginTop="3dp" android:layout_toRightOf="@id/image3" android:layout_marginLeft="6dp"/>
+
+</RelativeLayout>

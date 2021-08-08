@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/Edit"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp">
+
+        <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="8dp" app:srcCompat="@drawable/ic_edit" android:layout_marginLeft="5dp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:layout_gravity="center_vertical"
+                android:padding="8dp" android:layout_marginLeft="5dp" android:textColor="#0B0A0A"
+                android:textStyle="bold"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/deletelinear"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp">
+
+        <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="8dp" app:srcCompat="@android:drawable/ic_menu_delete"
+                android:tint="#FD0F0F" android:layout_marginLeft="5dp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:layout_gravity="center_vertical"
+                android:padding="8dp" android:layout_marginLeft="5dp" android:textColor="#0B0A0A"
+                android:textStyle="bold"/>
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/share"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp">
+
+        <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="8dp" app:srcCompat="@drawable/ic_send" android:layout_marginLeft="5dp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share"
+                android:layout_gravity="center_vertical"
+                android:padding="8dp" android:layout_marginLeft="5dp" android:textColor="#0B0A0A"
+                android:textStyle="bold"/>
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/reportLayout"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp">
+
+        <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="8dp" app:srcCompat="@android:drawable/ic_menu_myplaces"
+                android:tint="#EF0A0A" android:layout_marginLeft="5dp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Report"
+                android:layout_gravity="center_vertical"
+                android:padding="8dp" android:layout_marginLeft="5dp" android:textColor="#0B0A0A"
+                android:textStyle="bold"/>
+    </LinearLayout>
+
+
+</LinearLayout>

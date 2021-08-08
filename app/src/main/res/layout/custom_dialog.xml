@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/custom_diag_layout" android:background="#3AA6E1" android:layout_margin="5dp">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:background="@drawable/dialog_round_background"
+            android:layout_marginTop="10dp" android:layout_marginStart="10dp" android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="302dp" tools:srcCompat="@drawable/logo"
+                android:id="@+id/custom_diag_post_img"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="5dp" tools:visibility="visible"
+                android:layout_below="@id/custom_diag_profile_img"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/custom_diag_Timeofpost"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="12dp"
+                android:textStyle="italic" android:textColor="#0B0B0B"
+                android:layout_toRightOf="@id/custom_diag_profile_img"
+                android:layout_below="@id/custom_diag_userName"/>
+        <TextView
+                android:text="Username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/custom_diag_userName"
+                android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:textSize="18sp"
+                android:textStyle="bold" android:textColor="#121212"
+                android:layout_toRightOf="@id/custom_diag_profile_img"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/custom_diag_profile_img"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/logo" />
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/more"
+                android:id="@+id/custom_diag_postmenu_btn"
+                android:layout_marginEnd="20dp" android:layout_alignParentEnd="true"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/custom_diag_linear"
+                android:layout_marginTop="10dp" android:layout_below="@id/custom_diag_post_img">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:srcCompat="@drawable/ic_unlike"
+                    android:id="@+id/custom_diag_likebutton"
+                    android:layout_weight="1"/>
+            <TextView
+                    android:text="Likes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/custom_diag_likes_count"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold" android:textColor="#040404" android:layout_gravity="center_vertical"
+                    android:layout_weight="1"/>
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:srcCompat="@drawable/ic_comments"
+                    android:id="@+id/custom_diag_comments_icon"
+                    android:layout_marginStart="5dp" android:layout_gravity="center_vertical"
+                    android:layout_weight="1"/>
+            <TextView
+                    android:text="Comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/custom_diag_comments_count"
+                    android:textColor="#040404"
+                    android:layout_marginStart="5dp" android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

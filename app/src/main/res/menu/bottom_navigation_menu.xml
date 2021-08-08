@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/bottom_nav_home"
+          android:title="Home"
+          android:icon="@drawable/ic_home"
+          app:cnb_backgroundColor="@color/purple_500"/>
+
+
+    <item android:title="Reels" android:icon="@drawable/ic_iconmonstr_play_thin" android:id="@+id/reels_btn"/>
+    <item android:id="@+id/bottom_nav_addpost"
+          android:title="Add Post"
+          android:icon="@drawable/add"
+          app:cnb_backgroundColor="@color/purple_500"/>
+    <item android:id="@+id/bottom_nav_user"
+          android:title="User"
+          android:icon="@drawable/profile_icons"
+          app:cnb_backgroundColor="@color/purple_500"/>
+</menu>

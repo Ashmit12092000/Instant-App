@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:visibility="visible"
+        android:id="@+id/reciever_layout">
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" tools:layout_editor_absoluteY="0dp"
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/relativeLayout">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/pdfinearLayout" tools:visibility="gone"
+                android:background="@drawable/reciver_mesaage_box" android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp" android:layout_marginEnd="5dp" android:layout_marginBottom="5dp">
+
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" android:background="#F8F8F8">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:srcCompat="@drawable/pdf"
+                        android:id="@+id/imageView4" android:padding="10dp"/>
+                <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/filename" android:layout_weight="1"
+                        android:layout_marginTop="10dp" android:padding="10dp" android:textColor="#040404"/>
+            </LinearLayout>
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="20dp" app:srcCompat="@drawable/seen" android:id="@+id/delivered"
+                        android:layout_weight="1"
+                        android:visibility="visible"/>
+                <TextView
+                        android:text="time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/pdf_msg_time"
+                        android:textColor="#090909" tools:visibility="visible"
+                        android:layout_toRightOf="@id/delivered"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:background="@drawable/reciever_linea_round"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/txtmsg_layout" tools:visibility="visible" android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp" android:layout_marginEnd="5dp" android:layout_marginBottom="5dp"
+        >
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/reciever_message"
+                    android:paddingStart="5dp" android:paddingTop="5dp" android:paddingEnd="10dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginTop="2dp" android:layout_marginLeft="2dp" android:layout_marginStart="2dp"
+                    android:textSize="20sp" android:textColor="#0C0C0C"/>
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_rcv_msg_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:paddingRight="2dp"
+                    android:text="time"
+                    android:textAlignment="textStart"
+                    android:textColor="#090909"
+                    tools:visibility="visible" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:background="@drawable/reciver_mesaage_box"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/rcv_image_msg_layout" tools:visibility="gone" android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp" android:layout_marginEnd="5dp" android:layout_marginBottom="5dp">
+
+            <ImageView
+                    android:layout_width="184dp"
+                    android:layout_height="184dp" app:srcCompat="@drawable/user" android:id="@+id/imageView2"
+                    android:scaleType="centerCrop" android:layout_margin="5dp" android:visibility="gone"
+                    tools:visibility="visible"/>
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:text="time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/rcv_image_msg_time"
+                        android:textColor="#090909" tools:visibility="visible"
+                        android:layout_marginStart="10dp" android:textAlignment="textStart"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:background="@drawable/reciver_mesaage_box"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/rcv_video_layout" tools:visibility="gone" android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp" android:layout_marginEnd="5dp" android:layout_marginBottom="5dp"
+        >
+            <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/videoplayer1"
+                    android:layout_width="200dp"
+                    android:layout_height="184dp" android:layout_marginTop="5dp" android:layout_marginLeft="3dp"/>
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:text="time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/video_rcv_msg_time"
+                        android:textColor="#090909" tools:visibility="visible"
+                        android:layout_marginStart="10dp" android:textAlignment="textStart"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
