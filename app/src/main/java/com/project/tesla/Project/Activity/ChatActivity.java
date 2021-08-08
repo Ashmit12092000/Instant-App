@@ -1,11 +1,13 @@
 package com.project.tesla.Project.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -19,7 +21,9 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.common.internal.IAccountAccessor;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +32,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.project.tesla.Project.Adapters.MessageAdapter;
 import com.project.tesla.Project.Cryptography.EncodeMessages;
 import com.project.tesla.Project.Model.Message;
@@ -36,6 +42,7 @@ import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -80,6 +87,7 @@ public class ChatActivity extends AppCompatActivity {
         db=FirebaseDatabase.getInstance();
         chat_message=findViewById(R.id.chat_message);
         profile_pic= findViewById(R.id.profile_user);
+        attachment=findViewById(R.id.attachment);
         loadingBar = new ProgressDialog(ChatActivity.this);
         recyclerView=findViewById(R.id.chat_recycler_Views);
         sender_uid= FirebaseAuth.getInstance().getUid();
@@ -94,6 +102,8 @@ public class ChatActivity extends AppCompatActivity {
         lottiedialog=new Lottiedialog(ChatActivity.this);
         send_btn=findViewById(R.id.send);
         toolbar= findViewById(R.id.chattoolbar);
+        dialog=new ProgressDialog(ChatActivity.this);
+        dialog.setMessage("Sending...");
         back=findViewById(R.id.cback);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -143,6 +153,15 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
         attachment= findViewById(R.id.attachment);
+        attachment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent,100);
+
+            }
+        });
         FirebaseDatabase.getInstance().getReference().child("users").child(mauth.getUid()).
                 addValueEventListener(new ValueEventListener() {
                     @Override
@@ -313,6 +332,131 @@ public class ChatActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==100 && resultCode==RESULT_OK && data.getData()!=null) {
+            Uri uri = data.getData();
+            dialog.show();
+            Toast.makeText(this, uri.toString(), Toast.LENGTH_SHORT).show();
+            if (uri.toString().contains("image")) {
+                Calendar calendar = Calendar.getInstance();
+                StorageReference reference = storage.getReference().child("chats").child(calendar.getTimeInMillis() + "");
+                reference.putFile(uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                        if (task.isSuccessful()) {
+
+                            reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    dialog.dismiss();
+                                    senderRoom = sender_uid + receiver_uid;
+                                    recieverRoom = receiver_uid + sender_uid;
+                                    String image_uri = uri.toString();
+                                    String message_text = chat_message.getText().toString();
+                                    Date date = new Date();
+                                    Message message = new Message(sender_uid, message_text, date.getTime(), receiver_uid);
+                                    message.setMessage("post");
+                                    message.setImage_uri(image_uri);
+                                    message.setFilename(data.getDataString().substring(data.getDataString().lastIndexOf("/")));
+                                    chat_message.setText("");
+                                    FirebaseDatabase db = FirebaseDatabase.getInstance();
+                                    String Key = db.getReference().push().getKey();
+                                    HashMap<String, Object> lastMsgObj = new HashMap<>();
+                                    lastMsgObj.put("lastMsg", message.getMessage());
+                                    lastMsgObj.put("lastMsgTime", date.getTime());
+
+                                    db.getReference().child("chats").child(senderRoom).updateChildren(lastMsgObj);
+                                    db.getReference().child("chats").child(recieverRoom).updateChildren(lastMsgObj);
+                                    assert Key != null;
+                                    db.getReference().child("chats")
+                                            .child(senderRoom)
+                                            .child("messages")
+                                            .child(Key)
+                                            .setValue(message).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            db.getReference().child("chats")
+                                                    .child(recieverRoom)
+                                                    .child("messages")
+                                                    .child(Key)
+                                                    .setValue(message).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+
+                            });
+                        }
+                    }
+                });
+            }
+
+            else{
+                Calendar calendar = Calendar.getInstance();
+                StorageReference reference = storage.getReference().child("chats").child(calendar.getTimeInMillis() + "");
+                reference.putFile(uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                        if (task.isSuccessful()) {
+
+                            reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    dialog.dismiss();
+                                    senderRoom = sender_uid + receiver_uid;
+                                    recieverRoom = receiver_uid + sender_uid;
+                                    String image_uri = uri.toString();
+                                    String message_text = chat_message.getText().toString();
+                                    Date date = new Date();
+                                    Message message = new Message(sender_uid, message_text, date.getTime(),receiver_uid);
+                                    message.setMessage("video");
+                                    message.setVideo_uri(image_uri);
+                                    message.setFilename(data.getDataString().substring(data.getDataString().lastIndexOf("/")+1));
+                                    chat_message.setText("");
+                                    FirebaseDatabase db = FirebaseDatabase.getInstance();
+                                    String Key = db.getReference().push().getKey();
+
+                                    HashMap<String, Object> lastMsgObj = new HashMap<>();
+                                    lastMsgObj.put("lastMsg", message.getMessage());
+                                    lastMsgObj.put("lastMsgTime", date.getTime());
+
+                                    db.getReference().child("chats").child(senderRoom).updateChildren(lastMsgObj);
+                                    db.getReference().child("chats").child(recieverRoom).updateChildren(lastMsgObj);
+                                    assert Key != null;
+                                    db.getReference().child("chats")
+                                            .child(senderRoom)
+                                            .child("messages")
+                                            .child(Key)
+                                            .setValue(message).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            db.getReference().child("chats")
+                                                    .child(recieverRoom)
+                                                    .child("messages")
+                                                    .child(Key)
+                                                    .setValue(message).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        }
     }
 
     @Override

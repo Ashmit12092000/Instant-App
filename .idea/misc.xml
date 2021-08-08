@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/InstantApp-master/app/src/main/res/layout/activity_chat.xml" value="0.25" />
         <entry key="..\:/Tesla/app/src/main/res/drawable/chat_toolbar.xml" value="0.26614583333333336" />
         <entry key="..\:/Tesla/app/src/main/res/drawable/dialog_round_background.xml" value="0.26614583333333336" />
         <entry key="..\:/Tesla/app/src/main/res/drawable/msg_left_corner.xml" value="0.26614583333333336" />

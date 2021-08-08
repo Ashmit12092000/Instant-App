@@ -81,6 +81,7 @@ dependencies {
     implementation 'com.allattentionhere:autoplayvideos:0.2.0'
     implementation 'com.google.android.exoplayer:exoplayer:2.10.5'
     implementation 'com.github.Deishelon:RoundedBottomSheet:1.0.1'
+    implementation 'com.github.tizisdeepan:gallerypicker:1.0.1'
 
 }
 
